@@ -1,0 +1,3 @@
+class MobilHomeApiService {
+  getMethod() {}
+}
