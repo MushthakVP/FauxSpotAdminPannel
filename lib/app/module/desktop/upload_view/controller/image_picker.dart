@@ -26,7 +26,7 @@ class ImagePickController extends GetxController {
           file: image.path,
           fileBytes: uImage1,
           resourceType: CloudinaryResourceType.image,
-          folder: "uifyhui",
+          folder: "FauxSpotServer",
           fileName: 'some-name',
           progressCallback: (count, total) {
             log('Uploading image from file with progress: $count/$total');
@@ -58,7 +58,7 @@ class ImagePickController extends GetxController {
           file: image.path,
           fileBytes: uImage2,
           resourceType: CloudinaryResourceType.image,
-          folder: "uifyhui",
+          folder: "FauxSpotServer",
           fileName: 'some-name',
           progressCallback: (count, total) {
             log('Uploading image from file with progress: $count/$total');
@@ -90,7 +90,7 @@ class ImagePickController extends GetxController {
           file: image.path,
           fileBytes: uImage3,
           resourceType: CloudinaryResourceType.image,
-          folder: "uifyhui",
+          folder: "FauxSpotServer",
           fileName: 'some-name',
           progressCallback: (count, total) {
             log('Uploading image from file with progress: $count/$total');
