@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 
 class DistrictController extends GetxController {
@@ -135,7 +133,6 @@ class DistrictController extends GetxController {
     muncipal.clear();
     muncipality.forEach((key, value) {
       if (shortCode == value) {
-        log(key.toString());
         muncipal.add(key);
       }
     });

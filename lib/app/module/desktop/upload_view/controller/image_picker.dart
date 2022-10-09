@@ -1,4 +1,4 @@
-import 'dart:developer';
+import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:get/state_manager.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,6 +11,15 @@ class ImagePickController extends GetxController {
     cloudName: "fouvtycloud",
   );
 
+  randomNumberGenerator() {
+    var rng = Random();
+    int num = 10;
+    for (int i = 0; i < 100; i++) {
+      num = rng.nextInt(10);
+    }
+    return num;
+  }
+
   String? cloudinary1;
   late Uint8List uImage1;
   bool cimage = false;
@@ -20,25 +29,35 @@ class ImagePickController extends GetxController {
     final ImagePicker picker = ImagePicker();
     XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      log(image.path.toString());
+      if (kDebugMode) {
+        print(image.path.toString());
+      }
       uImage1 = await image.readAsBytes();
       final response = await cloudinary.upload(
           file: image.path,
           fileBytes: uImage1,
           resourceType: CloudinaryResourceType.image,
           folder: "FauxSpotServer",
-          fileName: 'some-name',
+          fileName:
+              "${randomNumberGenerator()}musthak${randomNumberGenerator()}",
           progressCallback: (count, total) {
-            log('Uploading image from file with progress: $count/$total');
+            if (kDebugMode) {
+              print('Uploading image from file with progress: $count/$total');
+            }
           });
       if (response.isSuccessful) {
         cloudinary1 = response.secureUrl;
+        if (kDebugMode) {
+          print(cloudinary1.toString());
+        }
         cimage = false;
       } else {
         cimage = false;
       }
     } else {
-      log("No file selected");
+      if (kDebugMode) {
+        print("No file selected");
+      }
     }
     update();
   }
@@ -52,25 +71,35 @@ class ImagePickController extends GetxController {
     final ImagePicker picker = ImagePicker();
     XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      log(image.path.toString());
+      if (kDebugMode) {
+        print(image.path.toString());
+      }
       uImage2 = await image.readAsBytes();
       final response = await cloudinary.upload(
           file: image.path,
           fileBytes: uImage2,
           resourceType: CloudinaryResourceType.image,
           folder: "FauxSpotServer",
-          fileName: 'some-name',
+          fileName:
+              "${randomNumberGenerator()}musthak${randomNumberGenerator()}",
           progressCallback: (count, total) {
-            log('Uploading image from file with progress: $count/$total');
+            if (kDebugMode) {
+              print('Uploading image from file with progress: $count/$total');
+            }
           });
       if (response.isSuccessful) {
         cloudinary2 = response.secureUrl;
+        if (kDebugMode) {
+          print(cloudinary2.toString());
+        }
         cimage2 = false;
       } else {
         cimage2 = false;
       }
     } else {
-      log("No file selected");
+      if (kDebugMode) {
+        print("No file selected");
+      }
     }
     update();
   }
@@ -84,25 +113,35 @@ class ImagePickController extends GetxController {
     final ImagePicker picker = ImagePicker();
     XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      log(image.path.toString());
+      if (kDebugMode) {
+        print(image.path.toString());
+      }
       uImage3 = await image.readAsBytes();
       final response = await cloudinary.upload(
           file: image.path,
           fileBytes: uImage3,
           resourceType: CloudinaryResourceType.image,
           folder: "FauxSpotServer",
-          fileName: 'some-name',
+          fileName:
+              "${randomNumberGenerator()}musthak${randomNumberGenerator()}",
           progressCallback: (count, total) {
-            log('Uploading image from file with progress: $count/$total');
+            if (kDebugMode) {
+              print('Uploading image from file with progress: $count/$total');
+            }
           });
       if (response.isSuccessful) {
         cloudinary3 = response.secureUrl;
+        if (kDebugMode) {
+          print(cloudinary3.toString());
+        }
         cimage3 = false;
       } else {
         cimage3 = false;
       }
     } else {
-      log("No file selected");
+      if (kDebugMode) {
+        print("No file selected");
+      }
     }
     update();
   }

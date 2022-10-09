@@ -378,91 +378,103 @@ class FirstWidget extends StatelessWidget {
               space(),
               Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: white,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: grey,
-                          blurRadius: 15,
-                          offset: Offset(0, 10),
-                        ),
-                      ],
-                    ),
-                    child: GetBuilder<DistrictController>(
-                      init: DistrictController(),
-                      builder: (obj) => DropdownButtonHideUnderline(
-                        child: DropdownButton(
-                          elevation: 10,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            color: balck,
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: white,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: grey,
+                            blurRadius: 15,
+                            offset: Offset(0, 10),
                           ),
-                          borderRadius: BorderRadius.circular(10),
-                          dropdownColor: white,
-                          hint: Text(
-                            'Select District',
-                            style: gSans(),
+                        ],
+                      ),
+                      child: GetBuilder<DistrictController>(
+                        init: DistrictController(),
+                        builder: (obj) => DropdownButtonHideUnderline(
+                          child: Flexible(
+                            child: DropdownButton(
+                              elevation: 10,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: balck,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              dropdownColor: white,
+                              hint: Flexible(
+                                child: Text(
+                                  'Select District',
+                                  style: gSans(),
+                                ),
+                              ),
+                              value: obj.dropdownValue,
+                              items: obj.dstrictList.map((newList) {
+                                return DropdownMenuItem(
+                                  value: newList,
+                                  child: Text(newList),
+                                );
+                              }).toList(),
+                              onChanged: (newValue) {
+                                obj.muncipal.clear();
+                                obj.districtChange(obj.dstrict[newValue]);
+                                obj.changeDropName(dropdownValue: newValue);
+                              },
+                            ),
                           ),
-                          value: obj.dropdownValue,
-                          items: obj.dstrictList.map((newList) {
-                            return DropdownMenuItem(
-                              value: newList,
-                              child: Text(newList),
-                            );
-                          }).toList(),
-                          onChanged: (newValue) {
-                            obj.muncipal.clear();
-                            obj.districtChange(obj.dstrict[newValue]);
-                            obj.changeDropName(dropdownValue: newValue);
-                          },
                         ),
                       ),
                     ),
                   ),
                   space(),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: white,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: grey,
-                          blurRadius: 15,
-                          offset: Offset(0, 10),
-                        ),
-                      ],
-                    ),
-                    child: GetBuilder<DistrictController>(
-                      init: DistrictController(),
-                      builder: (obj) => DropdownButtonHideUnderline(
-                        child: DropdownButton(
-                          elevation: 10,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            color: balck,
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: white,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: grey,
+                            blurRadius: 15,
+                            offset: Offset(0, 10),
                           ),
-                          borderRadius: BorderRadius.circular(10),
-                          dropdownColor: white,
-                          hint: Text(
-                            'Select Muncipality',
-                            style: gSans(),
+                        ],
+                      ),
+                      child: GetBuilder<DistrictController>(
+                        init: DistrictController(),
+                        builder: (obj) => DropdownButtonHideUnderline(
+                          child: Flexible(
+                            child: DropdownButton(
+                              elevation: 10,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: balck,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              dropdownColor: white,
+                              hint: Flexible(
+                                child: Text(
+                                  'Select Muncipality',
+                                  style: gSans(),
+                                ),
+                              ),
+                              value: obj.mDropdownValue,
+                              items: obj.muncipal.map((newList) {
+                                return DropdownMenuItem(
+                                  value: newList,
+                                  child: Text(newList),
+                                );
+                              }).toList(),
+                              onChanged: (newValue) {
+                                obj.changemDropName(mDropdownValue: newValue);
+                              },
+                            ),
                           ),
-                          value: obj.mDropdownValue,
-                          items: obj.muncipal.map((newList) {
-                            return DropdownMenuItem(
-                              value: newList,
-                              child: Text(newList),
-                            );
-                          }).toList(),
-                          onChanged: (newValue) {
-                            obj.changemDropName(mDropdownValue: newValue);
-                          },
                         ),
                       ),
                     ),
