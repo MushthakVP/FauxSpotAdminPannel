@@ -12,7 +12,7 @@ class DesktopOverviewController extends GetxController {
   TextEditingController turfName = TextEditingController();
   TextEditingController turfPlace = TextEditingController();
   TextEditingController turfDistrict = TextEditingController();
-  TextEditingController turfMuncipality = TextEditingController();
+  TextEditingController turfMunicipality = TextEditingController();
   TextEditingController morningRate = TextEditingController();
   TextEditingController eveningRate = TextEditingController();
   TextEditingController afternoonRate = TextEditingController();
@@ -35,27 +35,27 @@ class DesktopOverviewController extends GetxController {
           turfCreatorId: turf.turfCreatorId,
           turfName: turfName.text,
           turfPlace: turfPlace.text,
-          turfMuncipality: turfMuncipality.text,
+          turfMunicipality: turfMunicipality.text,
           id: turf.id,
           turfInfo: TurfInfo(
             turfMap: mapController.text,
             turfRating: double.parse(ratingController.text),
-            turfIsAvailale: radio.available.value,
+            turfIsAvailable: radio.available.value,
           ),
           turfTime: TurfTime(
             timeMorning: morningRate.text,
             timeAfternoon: afternoonRate.text,
             timeEvening: eveningRate.text,
           ),
-          turfCatogery: TurfCatogery(
+          turfCategory: TurfCategory(
             turfBadminton: radio.badminton.value,
             turfCricket: radio.cricket.value,
             turfFootball: radio.football.value,
             turfYoga: radio.yoga.value,
           ),
           turfType: TurfType(
-            turfSixes: radio.sixse.value,
-            turfSevens: radio.sevense.value,
+            turfSixes: radio.sixes.value,
+            turfSevens: radio.sevens.value,
           ),
           turfAmenities: TurfAmenities(
             turfParking: radio.parking.value,
@@ -74,9 +74,9 @@ class DesktopOverviewController extends GetxController {
       ],
     );
 
-    final respones = await OverviewApi().upadateTurf(data: data, id: turf.id!);
-    if (respones != null) {
-      if (respones["status"] == true) {
+    final response = await OverviewApi().updateTurf(data: data, id: turf.id!);
+    if (response != null) {
+      if (response["status"] == true) {
         isLoading.value = false;
         controller.fetchTurf();
         Get.snackbar(

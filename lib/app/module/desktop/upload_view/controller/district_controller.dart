@@ -7,7 +7,7 @@ class DistrictController extends GetxController {
     super.onInit();
   }
 
-  Map<String, String> dstrict = {
+  Map<String, String> district = {
     "Thiruvananthapuram": "tvm",
     "Kollam": "klm",
     "Pathanamthitta": "pt",
@@ -24,11 +24,11 @@ class DistrictController extends GetxController {
     "Kasaragod": "ksd",
   };
 
-  List<String> dstrictList = [];
+  List<String> districtList = [];
 
   countryDependentDropDown() {
-    dstrict.forEach((key, value) {
-      dstrictList.add(key);
+    district.forEach((key, value) {
+      districtList.add(key);
     });
   }
 
@@ -39,7 +39,7 @@ class DistrictController extends GetxController {
     update();
   }
 
-  final muncipality = {
+  final municipality = {
     "Attingal": "tvm",
     "Nedumangad": "tvm",
     "Neyyattinkara": "tvm",
@@ -131,7 +131,7 @@ class DistrictController extends GetxController {
 
   districtChange(shortCode) {
     muncipal.clear();
-    muncipality.forEach((key, value) {
+    municipality.forEach((key, value) {
       if (shortCode == value) {
         muncipal.add(key);
       }

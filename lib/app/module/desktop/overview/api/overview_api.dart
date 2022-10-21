@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../../../util/colors.dart';
 
 class OverviewApi {
-  Future<dynamic> upadateTurf(
+  Future<dynamic> updateTurf(
       {required VendorModelResp data, required String id}) async {
     try {
       final response = await Dio().patch(

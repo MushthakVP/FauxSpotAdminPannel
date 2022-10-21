@@ -33,7 +33,7 @@ class UploadView extends StatelessWidget {
           ),
           space(height: 20),
           Text(
-            "Amentities",
+            "Amenities",
             style: gSans(),
           ),
           space(),
@@ -54,6 +54,8 @@ class UploadView extends StatelessWidget {
           TurfInfoWidget(
             controller: controller,
           ),
+          space(),
+          TurfInfoWidget3(controller: controller),
           space(),
           SizedBox(
             height: 50,
@@ -131,6 +133,127 @@ class TurfInfoWidget extends StatelessWidget {
             controller: controller.turfPlace,
             decoration: const InputDecoration(
               labelText: "Turf Place",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+      ],
+    );
+  }
+}
+
+class TurfInfoWidget3 extends StatelessWidget {
+  final UploadController controller;
+  const TurfInfoWidget3({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: controller.turfMorningStart,
+            decoration: const InputDecoration(
+              labelText: "Turf Morning Price Start",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+        Expanded(
+          child: TextField(
+            controller: controller.turfMorningEnd,
+            decoration: const InputDecoration(
+              labelText: "Turf Morning Price End",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+        Expanded(
+          child: TextField(
+            controller: controller.turfAfternoonStart,
+            decoration: const InputDecoration(
+              labelText: "Turf Afternoon Price Start",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+        Expanded(
+          child: TextField(
+            controller: controller.turfAfternoonEnd,
+            decoration: const InputDecoration(
+              labelText: "Turf Afternoon Price End",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+        Expanded(
+          child: TextField(
+            controller: controller.turfEveningStart,
+            decoration: const InputDecoration(
+              labelText: "Turf Evening Price Start",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+        Expanded(
+          child: TextField(
+            controller: controller.turfEveningEnd,
+            decoration: const InputDecoration(
+              labelText: "Turf Evening Price End",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 5.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space(),
+        Expanded(
+          child: TextField(
+            controller: controller.turfLogo,
+            decoration: const InputDecoration(
+              labelText: "Turf Logo",
               border: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.red,
@@ -412,7 +535,7 @@ class FirstWidget extends StatelessWidget {
                                 ),
                               ),
                               value: obj.dropdownValue,
-                              items: obj.dstrictList.map((newList) {
+                              items: obj.districtList.map((newList) {
                                 return DropdownMenuItem(
                                   value: newList,
                                   child: Text(newList),
@@ -420,7 +543,7 @@ class FirstWidget extends StatelessWidget {
                               }).toList(),
                               onChanged: (newValue) {
                                 obj.muncipal.clear();
-                                obj.districtChange(obj.dstrict[newValue]);
+                                obj.districtChange(obj.district[newValue]);
                                 obj.changeDropName(dropdownValue: newValue);
                               },
                             ),
@@ -459,7 +582,7 @@ class FirstWidget extends StatelessWidget {
                               dropdownColor: white,
                               hint: Flexible(
                                 child: Text(
-                                  'Select Muncipality',
+                                  'Select Municipality',
                                   style: gSans(),
                                 ),
                               ),

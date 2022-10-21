@@ -77,17 +77,17 @@ class ItemsSmallScreen extends StatelessWidget {
               CheckboxListTile(
                 activeColor: greenColor,
                 title: const Text("Sevens"),
-                value: radio.sevense.value,
+                value: radio.sevens.value,
                 onChanged: (newValue) {
-                  radio.sevense.value = newValue!;
+                  radio.sevens.value = newValue!;
                 },
               ),
               CheckboxListTile(
                 activeColor: greenColor,
                 title: const Text("Sixes"),
-                value: radio.sixse.value,
+                value: radio.sixes.value,
                 onChanged: (newValue) {
-                  radio.sixse.value = newValue!;
+                  radio.sixes.value = newValue!;
                 },
               ),
             ],

@@ -27,4 +27,12 @@ class UploadController extends GetxController {
   TextEditingController eveningPrice = TextEditingController();
   TextEditingController afternoonPrice = TextEditingController();
   TextEditingController turfPlace = TextEditingController();
+
+  TextEditingController turfMorningStart = TextEditingController();
+  TextEditingController turfMorningEnd = TextEditingController();
+  TextEditingController turfAfternoonStart = TextEditingController();
+  TextEditingController turfAfternoonEnd = TextEditingController();
+  TextEditingController turfEveningStart = TextEditingController();
+  TextEditingController turfEveningEnd = TextEditingController();
+  TextEditingController turfLogo = TextEditingController();
 }

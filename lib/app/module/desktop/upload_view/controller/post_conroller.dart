@@ -52,7 +52,7 @@ class PostController extends GetxController {
             turfWater: button.waterUp.value,
             turfWashroom: button.showerUp.value,
           ),
-          turfCatogery: TurfCatogery(
+          turfCategory: TurfCategory(
             turfCricket: button.cricket.value,
             turfFootball: button.football.value,
             turfBadminton: button.badminton.value,
@@ -63,7 +63,7 @@ class PostController extends GetxController {
             turfSixes: button.fives.value,
           ),
           turfInfo: TurfInfo(
-            turfIsAvailale: true,
+            turfIsAvailable: true,
             turfMap: button.turfLink.text,
             turfRating: double.tryParse(rating),
           ),
@@ -72,16 +72,25 @@ class PostController extends GetxController {
             turfImages2: images.cloudinary2,
             turfImages3: images.cloudinary3,
           ),
-          turfTime: TurfTime(
-            timeAfternoon: button.afternoonPrice.text,
-            timeEvening: button.eveningPrice.text,
-            timeMorning: button.morningPrice.text,
+          turfPrice: TurfPrice(
+            morningPrice: int.tryParse(button.afternoonPrice.text),
+            afternoonPrice: int.tryParse(button.eveningPrice.text),
+            eveningPrice: int.tryParse(button.morningPrice.text),
           ),
           turfCreatorId: user,
           turfName: button.turfName.text,
           turfPlace: button.turfPlace.text,
           turfDistrict: dropdown.dropdownValue,
-          turfMuncipality: dropdown.mDropdownValue,
+          turfMunicipality: dropdown.mDropdownValue,
+          turfLogo: button.turfLogo.text,
+          turfTime: TurfTime(
+            timeAfternoonEnd: int.tryParse(button.turfAfternoonEnd.text),
+            timeAfternoonStart: int.tryParse(button.turfAfternoonStart.text),
+            timeEveningEnd: int.tryParse(button.turfEveningEnd.text),
+            timeEveningStart: int.tryParse(button.turfEveningStart.text),
+            timeMorningEnd: int.tryParse(button.turfMorningEnd.text),
+            timeMorningStart: int.tryParse(button.turfMorningStart.text),
+          ),
         ),
       ],
     );

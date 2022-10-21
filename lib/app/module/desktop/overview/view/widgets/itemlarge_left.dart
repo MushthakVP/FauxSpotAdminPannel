@@ -63,9 +63,9 @@ class ItemLargeScreenLeft extends StatelessWidget {
                 child: CheckboxListTile(
                   activeColor: greenColor,
                   title: const Text("Sevens"),
-                  value: radio.sevense.value,
+                  value: radio.sevens.value,
                   onChanged: (newValue) {
-                    radio.sevense.value = newValue!;
+                    radio.sevens.value = newValue!;
                   },
                 ),
               ),

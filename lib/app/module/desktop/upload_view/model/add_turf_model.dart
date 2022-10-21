@@ -17,7 +17,7 @@ class AddTurfModel {
 
 class DataList {
   DataList({
-    this.turfCatogery,
+    this.turfCategory,
     this.turfType,
     this.turfInfo,
     this.turfAmenities,
@@ -27,12 +27,15 @@ class DataList {
     this.turfCreatorId,
     this.turfName,
     this.turfPlace,
-    this.turfMuncipality,
+    this.turfMunicipality,
     this.turfDistrict,
+    this.turfPrice,
+    this.turfLogo,
   });
 
-  TurfCatogery? turfCatogery;
+  TurfCategory? turfCategory;
   TurfType? turfType;
+  TurfPrice? turfPrice;
   TurfInfo? turfInfo;
   TurfAmenities? turfAmenities;
   TurfImages? turfImages;
@@ -41,37 +44,59 @@ class DataList {
   String? turfCreatorId;
   String? turfName;
   String? turfPlace;
-  String? turfMuncipality;
+  String? turfMunicipality;
   String? turfDistrict;
+  String? turfLogo;
 
   factory DataList.fromJson(Map<String?, dynamic> json) => DataList(
-        turfCatogery: TurfCatogery.fromJson(json["turf_catogery"]),
-        turfType: TurfType.fromJson(json["turf_type"]),
-        turfInfo: TurfInfo.fromJson(json["turf_info"]),
-        turfAmenities: TurfAmenities.fromJson(json["turf_amenities"]),
-        turfImages: TurfImages.fromJson(json["turf_images"]),
-        turfTime: TurfTime.fromJson(json["turf_time"]),
-        id: json["_id"],
-        turfCreatorId: json["turf_creator_id"],
-        turfName: json["turf_name"],
-        turfPlace: json["turf_place"],
-        turfMuncipality: json["turf_muncipality"],
-        turfDistrict: json["turf_district"],
-      );
+      turfCategory: TurfCategory.fromJson(json["turf_category"]),
+      turfType: TurfType.fromJson(json["turf_type"]),
+      turfInfo: TurfInfo.fromJson(json["turf_info"]),
+      turfAmenities: TurfAmenities.fromJson(json["turf_amenities"]),
+      turfImages: TurfImages.fromJson(json["turf_images"]),
+      turfTime: TurfTime.fromJson(json["turf_time"]),
+      turfPrice: TurfPrice.fromJson(json["turf_price"]),
+      id: json["_id"],
+      turfCreatorId: json["turf_creator_id"],
+      turfName: json["turf_name"],
+      turfPlace: json["turf_place"],
+      turfMunicipality: json["turf_municipality"],
+      turfDistrict: json["turf_district"],
+      turfLogo: json["turf_logo"]);
 
   Map<String?, dynamic> toJson() => {
-        "turf_catogery": turfCatogery?.toJson(),
+        "turf_category": turfCategory?.toJson(),
         "turf_type": turfType?.toJson(),
         "turf_info": turfInfo?.toJson(),
         "turf_amenities": turfAmenities?.toJson(),
         "turf_images": turfImages?.toJson(),
         "turf_time": turfTime?.toJson(),
+        "turf_price": turfPrice?.toJson(),
         "_id": id,
         "turf_creator_id": turfCreatorId,
         "turf_name": turfName,
         "turf_place": turfPlace,
-        "turf_muncipality": turfMuncipality,
+        "turf_municipality": turfMunicipality,
         "turf_district": turfDistrict,
+        "turf_logo": turfLogo,
+      };
+}
+
+class TurfPrice {
+  int? morningPrice;
+  int? afternoonPrice;
+  int? eveningPrice;
+  TurfPrice({this.afternoonPrice, this.eveningPrice, this.morningPrice});
+
+  factory TurfPrice.fromJson(Map<String?, dynamic> json) => TurfPrice(
+      morningPrice: json["morning_price"],
+      afternoonPrice: json["afternoon_price"],
+      eveningPrice: json["evening_price"]);
+
+  Map<String?, dynamic> toJson() => {
+        "morning_price": morningPrice,
+        "afternoon_price": afternoonPrice,
+        "evening_price": eveningPrice,
       };
 }
 
@@ -111,8 +136,8 @@ class TurfAmenities {
       };
 }
 
-class TurfCatogery {
-  TurfCatogery({
+class TurfCategory {
+  TurfCategory({
     this.turfCricket,
     this.turfFootball,
     this.turfBadminton,
@@ -124,7 +149,7 @@ class TurfCatogery {
   bool? turfBadminton;
   bool? turfYoga;
 
-  factory TurfCatogery.fromJson(Map<String?, dynamic> json) => TurfCatogery(
+  factory TurfCategory.fromJson(Map<String?, dynamic> json) => TurfCategory(
         turfCricket: json["turf_cricket"],
         turfFootball: json["turf_football"],
         turfBadminton: json["turf_badminton"],
@@ -165,23 +190,23 @@ class TurfImages {
 
 class TurfInfo {
   TurfInfo({
-    this.turfIsAvailale,
+    this.turfIsAvailable,
     this.turfRating,
     this.turfMap,
   });
 
-  bool? turfIsAvailale;
+  bool? turfIsAvailable;
   double? turfRating;
   String? turfMap;
 
   factory TurfInfo.fromJson(Map<String?, dynamic> json) => TurfInfo(
-        turfIsAvailale: json["turf_isAvailale"],
+        turfIsAvailable: json["turf_isAvailable"],
         turfRating: json["turf_rating"].toDouble(),
         turfMap: json["turf_map"],
       );
 
   Map<String?, dynamic> toJson() => {
-        "turf_isAvailale": turfIsAvailale,
+        "turf_isAvailable": turfIsAvailable,
         "turf_rating": turfRating,
         "turf_map": turfMap,
       };
@@ -189,25 +214,37 @@ class TurfInfo {
 
 class TurfTime {
   TurfTime({
-    this.timeMorning,
-    this.timeAfternoon,
-    this.timeEvening,
+    this.timeMorningStart,
+    this.timeMorningEnd,
+    this.timeAfternoonStart,
+    this.timeAfternoonEnd,
+    this.timeEveningStart,
+    this.timeEveningEnd,
   });
 
-  String? timeMorning;
-  String? timeAfternoon;
-  String? timeEvening;
+  int? timeMorningStart;
+  int? timeMorningEnd;
+  int? timeAfternoonStart;
+  int? timeAfternoonEnd;
+  int? timeEveningStart;
+  int? timeEveningEnd;
 
   factory TurfTime.fromJson(Map<String?, dynamic> json) => TurfTime(
-        timeMorning: json["time_morning"],
-        timeAfternoon: json["time_afternoon"],
-        timeEvening: json["time_evening"],
+        timeMorningStart: json["time_morning_start"],
+        timeMorningEnd: json["time_morning_end"],
+        timeAfternoonStart: json["time_afternoon_start"],
+        timeAfternoonEnd: json["time_afternoon_end"],
+        timeEveningStart: json["time_evening_start"],
+        timeEveningEnd: json["time_evening_end"],
       );
 
   Map<String?, dynamic> toJson() => {
-        "time_morning": timeMorning,
-        "time_afternoon": timeAfternoon,
-        "time_evening": timeEvening,
+        "time_morning_start": timeMorningStart,
+        "time_morning_end": timeMorningEnd,
+        "time_afternoon_start": timeAfternoonStart,
+        "time_afternoon_end": timeAfternoonEnd,
+        "time_evening_start": timeEveningStart,
+        "time_evening_end": timeEveningEnd,
       };
 }
 

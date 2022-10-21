@@ -49,9 +49,9 @@ class ItemLargeScreenRight extends StatelessWidget {
                 child: CheckboxListTile(
                   activeColor: greenColor,
                   title: const Text("Sixes"),
-                  value: radio.sixse.value,
+                  value: radio.sixes.value,
                   onChanged: (newValue) {
-                    radio.sixse.value = newValue!;
+                    radio.sixes.value = newValue!;
                   },
                 ),
               ),
@@ -69,7 +69,7 @@ class ItemLargeScreenRight extends StatelessWidget {
               Flexible(
                 child: CheckboxListTile(
                   activeColor: greenColor,
-                  title: const Text("Wasroom"),
+                  title: const Text("Washroom"),
                   value: radio.washroom.value,
                   onChanged: (newValue) {
                     radio.washroom.value = newValue!;

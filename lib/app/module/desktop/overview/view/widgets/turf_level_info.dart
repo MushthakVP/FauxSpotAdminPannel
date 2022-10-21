@@ -34,9 +34,9 @@ class TurfLevelWidgetInfo extends StatelessWidget {
           flex: 2,
           child: TextField(
             readOnly: true,
-            controller: controller.turfMuncipality,
+            controller: controller.turfMunicipality,
             decoration: const InputDecoration(
-              labelText: "Turf Muncipality",
+              labelText: "Turf Municipality",
               border: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.red,

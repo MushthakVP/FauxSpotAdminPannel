@@ -8,8 +8,8 @@ class RadioController extends GetxController {
 
   //turf type
 
-  RxBool sevense = true.obs;
-  RxBool sixse = true.obs;
+  RxBool sevens = true.obs;
+  RxBool sixes = true.obs;
 
   // turfAmenities
 

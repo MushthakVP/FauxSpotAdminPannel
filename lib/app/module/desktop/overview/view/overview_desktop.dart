@@ -23,12 +23,12 @@ class DesktopOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      radio.badminton.value = turf.turfCatogery!.turfBadminton!;
-      radio.football.value = turf.turfCatogery!.turfFootball!;
-      radio.cricket.value = turf.turfCatogery!.turfCricket!;
-      radio.yoga.value = turf.turfCatogery!.turfYoga!;
-      radio.sixse.value = turf.turfType!.turfSixes!;
-      radio.sevense.value = turf.turfType!.turfSevens!;
+      radio.badminton.value = turf.turfCategory!.turfBadminton!;
+      radio.football.value = turf.turfCategory!.turfFootball!;
+      radio.cricket.value = turf.turfCategory!.turfCricket!;
+      radio.yoga.value = turf.turfCategory!.turfYoga!;
+      radio.sixes.value = turf.turfType!.turfSixes!;
+      radio.sevens.value = turf.turfType!.turfSevens!;
       radio.parking.value = turf.turfAmenities!.turfParking!;
       radio.water.value = turf.turfAmenities!.turfWater!;
       radio.cafeteria.value = turf.turfAmenities!.turfCafeteria!;
@@ -39,7 +39,7 @@ class DesktopOverview extends StatelessWidget {
       controller.ratingController.text = turf.turfInfo!.turfRating.toString();
       controller.turfName.text = turf.turfName.toString();
       controller.turfPlace.text = turf.turfPlace.toString();
-      controller.turfMuncipality.text = turf.turfMuncipality.toString();
+      controller.turfMunicipality.text = turf.turfMunicipality.toString();
       //controller.turfDistrict.text = turf.turfDistrict.toString();
       controller.morningRate.text = turf.turfTime!.timeMorning.toString();
       controller.eveningRate.text = turf.turfTime!.timeEvening.toString();
